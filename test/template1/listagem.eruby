@@ -7,7 +7,7 @@
 <fo:page-sequence master-reference="A4-landscape">
 <fo:flow flow-name="xsl-region-body">
 
-
+<% for lista in @listas %>
 <!-- defines text title level 1-->
 <fo:block font-size="18pt"
       font-family="sans-serif"
@@ -22,29 +22,13 @@
 	<%= @title %>
 </fo:block>
 
-<% for lista in @listas %>
+
 	<fo:block>
 		Polo: <%= lista['polo'] %>
 	</fo:block>
 	<fo:block>
 		Disciplina: <%= lista['disciplina'] %>
 	</fo:block>
-
-	<% for aluno in lista['alunos'] %>
-		<fo:block>
-			Aluno: <%= aluno %>
-		</fo:block>
-
-	<% end %>
-<% end %>
-
-<fo:block>
-	POLO: CABACEIRAS - PB
-</fo:block>
-<fo:block>
-	DISCIPLINA: CALCULO DIFERENCIAL E INTEGRAL
-</fo:block>
-
 
 <fo:table border-collapse="collapse" table-layout="fixed" width="100%" break-after="page">
 	<fo:table-column column-width="proportional-column-width(2)" border-color="black" border-width="0.5pt" border-style="solid"/>
@@ -55,7 +39,7 @@
 <fo:table-header>
   <fo:table-row>
     <fo:table-cell>
-      <fo:block font-weight="bold" text-align="center" id="nombre">Nome</fo:block>
+      <fo:block font-weight="bold" text-align="center">Nome</fo:block>
     </fo:table-cell>
     <fo:table-cell>
       <fo:block font-weight="bold" text-align="center">Avaliação Presencial 1</fo:block>
@@ -69,68 +53,20 @@
   </fo:table-row>
 </fo:table-header>
 
+<fo:table-body>
 
-    <fo:table-body>
-	  <fo:table-row border-color="black" border-width="0.5pt" border-style="solid">
-	    <fo:table-cell>
-	      <fo:block text-align="left">ANTONIO BEZERA DINIZ NETO</fo:block>
-	    </fo:table-cell>
-	    <fo:table-cell>
-	      <fo:block text-align="center"></fo:block>
-	    </fo:table-cell>
-	    <fo:table-cell>
-	      <fo:block text-align="center">
-	      </fo:block>
-	    </fo:table-cell>
-	    <fo:table-cell>
-	      <fo:block text-align="center">
-	      </fo:block>
-	    </fo:table-cell>
-	  </fo:table-row>
-	  <fo:table-row  border-color="black" border-width="0.5pt" border-style="solid">
-	    <fo:table-cell>
-	      <fo:block text-align="left">
-	      EMANUEL TAMAR LIMA DE FARIAS
-	      </fo:block>
-	    </fo:table-cell>
-	    <fo:table-cell>
-	      <fo:block text-align="center"></fo:block>
-	    </fo:table-cell>
-	    <fo:table-cell>
-	      <fo:block text-align="center">
-	      </fo:block>
-	    </fo:table-cell>
-	    <fo:table-cell>
-	      <fo:block text-align="center">
-	      </fo:block>
-	    </fo:table-cell>
-
-	  </fo:table-row>
+	<% for aluno in lista['alunos'] %>
 		<fo:table-row  border-color="black" border-width="0.5pt" border-style="solid">
-			<fo:table-cell><fo:block text-align="left">EDILMA MARIA DA SILVA</fo:block></fo:table-cell>
+			<fo:table-cell><fo:block text-align="left"><%= aluno %></fo:block></fo:table-cell>
 			<fo:table-cell><fo:block></fo:block></fo:table-cell>
 			<fo:table-cell><fo:block></fo:block></fo:table-cell>
 			<fo:table-cell><fo:block></fo:block></fo:table-cell>
 		</fo:table-row>
+	<% end %>
+
 	</fo:table-body>
-      </fo:table>
-
-<fo:block font-size="18pt"
-      font-family="sans-serif"
-      line-height="24pt"
-      space-after.optimum="15pt"
-      background-color="blue"
-      color="white"
-      text-align="center"
-      padding-top="3pt"
-      font-variant="small-caps" break-before="page">
-  Lista de Presença
-</fo:block>
-
-
-<fo:block>
-	Hello, dudu!
-</fo:block>
+  </fo:table>
+<% end %>
 
 
 </fo:flow>
