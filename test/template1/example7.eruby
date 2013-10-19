@@ -1,0 +1,9 @@
+<!-- See http://www.kuwata-lab.com/erubis/users-guide.02.html -->
+<h1><%= @title %></h1>
+<ul>
+ <% for user in @users %>
+  <li>
+    <a href="mailto:<%= user['mail']%>"><%= user['name'] %></a>
+  </li>
+ <% end %>
+</ul>
