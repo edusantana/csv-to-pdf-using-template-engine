@@ -57,7 +57,7 @@
 
 	<% for aluno in lista['alunos'] %>
 		<fo:table-row  border-color="black" border-width="0.5pt" border-style="solid">
-			<fo:table-cell><fo:block text-align="left"><%= aluno %></fo:block></fo:table-cell>
+			<fo:table-cell><fo:block text-align="left" line-height="20pt" ><%= aluno %></fo:block></fo:table-cell>
 			<fo:table-cell><fo:block></fo:block></fo:table-cell>
 			<fo:table-cell><fo:block></fo:block></fo:table-cell>
 			<fo:table-cell><fo:block></fo:block></fo:table-cell>
