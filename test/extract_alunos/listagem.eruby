@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<fo:layout-master-set>
+<fo:simple-page-master margin="2cm" page-width="29.7cm" page-height="21.0cm" master-name="A4-landscape">
+<fo:region-body/>
+</fo:simple-page-master>
+</fo:layout-master-set>
+<fo:page-sequence master-reference="A4-landscape">
+<fo:flow flow-name="xsl-region-body">
+
+<% for lista in @listas %>
+<!-- defines text title level 1-->
+<fo:block font-size="18pt"
+      font-family="sans-serif"
+      line-height="24pt"
+      space-after.optimum="15pt"
+      background-color="black"
+      color="white"
+			font-weight="bold"
+      text-align="center"
+      padding-top="3pt"
+      font-variant="small-caps" break-before="page">
+	<%= @title %>
+</fo:block>
+
+
+	<fo:block>
+		Polo: <%= lista['polo'] %>
+	</fo:block>
+	<fo:block>
+		Disciplina: <%== lista['disciplina'] %>
+	</fo:block>
+
+<fo:table border-collapse="collapse" table-layout="fixed" width="100%" break-after="page">
+	<fo:table-column column-width="proportional-column-width(2)" border-color="black" border-width="0.5pt" border-style="solid"/>
+	<fo:table-column column-width="proportional-column-width(1)" border-color="black" border-width="0.5pt" border-style="solid"/>
+	<fo:table-column column-width="proportional-column-width(1)" border-color="black" border-width="0.5pt" border-style="solid"/>
+	<fo:table-column column-width="proportional-column-width(1)" border-color="black" border-width="0.5pt" border-style="solid"/>
+
+<fo:table-header>
+  <fo:table-row>
+    <fo:table-cell>
+      <fo:block font-weight="bold" text-align="center">Nome</fo:block>
+    </fo:table-cell>
+    <fo:table-cell>
+      <fo:block font-weight="bold" text-align="center">Avaliação Presencial 1</fo:block>
+    </fo:table-cell>
+    <fo:table-cell>
+      <fo:block font-weight="bold" text-align="center">Avaliação Presencial 2</fo:block>
+    </fo:table-cell>
+    <fo:table-cell>
+      <fo:block font-weight="bold" text-align="center">Reposição</fo:block>
+    </fo:table-cell>
+  </fo:table-row>
+</fo:table-header>
+
+<fo:table-body>
+
+	<% for aluno in lista['alunos'] %>
+		<fo:table-row  border-color="black" border-width="0.5pt" border-style="solid">
+			<fo:table-cell><fo:block text-align="left"><%= aluno %></fo:block></fo:table-cell>
+			<fo:table-cell><fo:block></fo:block></fo:table-cell>
+			<fo:table-cell><fo:block></fo:block></fo:table-cell>
+			<fo:table-cell><fo:block></fo:block></fo:table-cell>
+		</fo:table-row>
+	<% end %>
+
+	</fo:table-body>
+  </fo:table>
+<% end %>
+
+
+</fo:flow>
+</fo:page-sequence>
+</fo:root>
