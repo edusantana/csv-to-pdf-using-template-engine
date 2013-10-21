@@ -16,3 +16,5 @@ tmp
 .yardoc
 _yardoc
 doc/
+/csv-to-yaml/context.yaml
+/fo-to-pdf/document.pdf
