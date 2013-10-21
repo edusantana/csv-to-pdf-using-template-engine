@@ -18,3 +18,5 @@ _yardoc
 doc/
 /csv-to-yaml/context.yaml
 /fo-to-pdf/document.pdf
+/document.pdf
+/context.yaml

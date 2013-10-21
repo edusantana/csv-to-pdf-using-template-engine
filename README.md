@@ -2,10 +2,15 @@
 
 This project is used to create PDF from CSV data using a template engine.
 
+## How this project can be used?
+
+* Generate lists to get signatures of students of differents disciplines and cities.
+* Generate many documents using a template and data from a csv file.
+
 This is divided in 3 modules:
 
 * `fo-to-pdf`: This use a `.fo` file and produces a `pdf` using FOP (http://xmlgraphics.apache.org/fop/).
-* `ymal-to-fo`: This uses a `yaml` file as a context and a `eruby` template (http://www.kuwata-lab.com/erubis/) to produce a `fo` file.
+* `yaml-eruby-to-fo`: This uses a `yaml` file as a context and a `eruby` template (http://www.kuwata-lab.com/erubis/) to produce a `fo` file.
 * `csv-to-yaml`: This reads a `csv` file and produces a `yaml` as context to be used with a eruby template.
 
 ## Testing it
@@ -15,7 +20,7 @@ This is divided in 3 modules:
 
 Download the project and run:
 
-	ruby csv-to-yaml/extract_alunos.rb < csv-to-yaml/database-exported.csv > context.yaml ; erubis -f context.yaml yaml-to-fo/template-lista-de-presenca.eruby | fop - document.pdf
+	ruby csv-to-yaml/extract_alunos.rb < csv-to-yaml/database-exported.csv > context.yaml ; erubis -f context.yaml yaml-eruby-to-fo/template-lista-de-presenca.eruby | fop - document.pdf
 
 Two files will be created:
 
@@ -34,7 +39,7 @@ We have `document.fo` as an example:
 
 After you create your `fo` document you will need to design your own template.
 
-## ymal-to-fo
+## yaml-eruby-to-fo
 
 We use `erubis` as the template engine to produce the `fo` document.
 Since `erubis` can use a `yaml` file as a context (data source), this aproach 
