@@ -31,3 +31,4 @@ registros.each do |polo, disciplinas|
 	end
 end
 
+print "\n"
