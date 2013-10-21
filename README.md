@@ -8,6 +8,21 @@ This is divided in 3 modules:
 * `ymal-to-fo`: This uses a `yaml` file as a context and a `eruby` template (http://www.kuwata-lab.com/erubis/) to produce a `fo` file.
 * `csv-to-yaml`: This reads a `csv` file and produces a `yaml` as context to be used with a eruby template.
 
+## Testing it
+
+* Install fop
+* Install erubis (requires ruby)
+
+Download the project and run:
+
+	ruby csv-to-yaml/extract_alunos.rb < csv-to-yaml/database-exported.csv > context.yaml ; erubis -f context.yaml yaml-to-fo/template-lista-de-presenca.eruby | fop - document.pdf
+
+Two files will be created:
+
+* document.pdf: the final document 
+* context.yaml: context using data extracted from `database-exported.csv`
+
+
 ## fo-to-pdf
 
 The first thing to do is to define want we want to create, you can use a `fo` 
