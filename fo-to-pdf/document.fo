@@ -4,6 +4,17 @@
 <fo:region-body/>
 </fo:simple-page-master>
 </fo:layout-master-set>
+
+<fo:bookmark-tree>
+ <fo:bookmark internal-destination="polo - disciplina" starting-state="show">
+   <fo:bookmark-title>Título do Capítulo</fo:bookmark-title>
+   <fo:bookmark internal-destination="polo - disciplina">
+     <fo:bookmark-title>Sub título</fo:bookmark-title>
+   </fo:bookmark>
+ </fo:bookmark>
+</fo:bookmark-tree>
+
+
 <fo:page-sequence master-reference="A4-landscape">
 <fo:flow flow-name="xsl-region-body">
 
@@ -17,7 +28,7 @@
 			font-weight="bold"
       text-align="center"
       padding-top="3pt"
-      font-variant="small-caps" break-before="page">
+      font-variant="small-caps" break-before="page" id="polo - disciplina">
 	Lista de Presença - Licenciatura em Computação a Distância - 2013.2
 </fo:block>
 

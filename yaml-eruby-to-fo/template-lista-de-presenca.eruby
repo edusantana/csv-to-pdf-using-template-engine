@@ -4,8 +4,19 @@
 <fo:region-body/>
 </fo:simple-page-master>
 </fo:layout-master-set>
+
+<fo:bookmark-tree>
+<% for lista in @listas %>
+ <fo:bookmark internal-destination="<%= lista['polo'] %>-<%= lista['disciplina'] %>">
+   <fo:bookmark-title><%= lista['polo'] %>-<%= lista['disciplina'] %></fo:bookmark-title>
+ </fo:bookmark>
+<% end %>
+</fo:bookmark-tree>
+
+
 <fo:page-sequence master-reference="A4-landscape">
 <fo:flow flow-name="xsl-region-body">
+
 
 <% for lista in @listas %>
 <!-- defines text title level 1-->
@@ -18,7 +29,7 @@
 			font-weight="bold"
       text-align="center"
       padding-top="3pt"
-      font-variant="small-caps" break-before="page">
+      font-variant="small-caps" break-before="page" id="<%= lista['polo'] %>-<%= lista['disciplina'] %>">
 	<%= @title %>
 </fo:block>
 
